@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "id": "marshcore-api",
+  "version": "${version}",
+  "name": "MarshCore API",
+  "description": "Shared pack-version payloads for the MarshCore server and client mods.",
+  "authors": ["Glance Studios"],
+  "license": "MIT",
+  "environment": "*",
+  "depends": {
+    "fabricloader": ">=0.16",
+    "minecraft": "~26.2",
+    "java": ">=25",
+    "fabric-language-kotlin": ">=1.13"
+  }
+}
