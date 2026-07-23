@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "marshcore",
+  "version": "${version}",
+  "name": "MarshCore",
+  "description": "Core server-side systems for the MarshLands SMP. Currently: a one-time, first-login Mending reset that strips Mending from a player's existing gear (inventory, ender chest, and shulker contents) and compensates them. Players install nothing.",
+  "authors": ["Glance Studios"],
+  "contact": {},
+  "license": "ARR",
+  "environment": "*",
+  "entrypoints": {
+    "server": [
+      { "adapter": "kotlin", "value": "dev.marshcore.MarshCoreMod" }
+    ]
+  },
+  "mixins": [
+    "marshcore.mixins.json"
+  ],
+  "depends": {
+    "marshcore-api": "*",
+    "fabricloader": ">=0.16",
+    "minecraft": "~26.2",
+    "java": ">=25",
+    "fabric-api": "*",
+    "fabric-language-kotlin": ">=1.13"
+  }
+}
