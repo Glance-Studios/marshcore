@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "marshcore-client",
+  "version": "${version}",
+  "name": "MarshCore (Client)",
+  "description": "Client companion for MarshCore. Reports the baked-in MarshLands pack version to the server's update-check gate. Ships in the modpack.",
+  "authors": ["Glance Studios"],
+  "contact": {},
+  "license": "ARR",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      { "adapter": "kotlin", "value": "dev.marshcore.client.MarshCoreClient" }
+    ]
+  },
+  "depends": {
+    "marshcore-api": "*",
+    "fabricloader": ">=0.16",
+    "minecraft": "~26.2",
+    "java": ">=25",
+    "fabric-api": "*",
+    "fabric-language-kotlin": ">=1.13"
+  }
+}
