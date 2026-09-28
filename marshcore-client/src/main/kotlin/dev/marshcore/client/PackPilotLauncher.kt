@@ -13,11 +13,8 @@ import java.util.concurrent.TimeUnit
 
 /**
  * Finds and starts PackPilot: the installed executable first, then `packpilot://`, then nothing.
- * Only the executable branch works today, because PackPilot registers no URL protocol yet.
- *
- * Detection is client-side by design, so the server never names a path to execute. It tries the
- * configured path, the breadcrumb PackPilot writes on every run, the NSIS and MSI install locations,
- * then the uninstall entry, once on a daemon thread so a `reg query` never blocks a frame.
+ * Detection is client-side by design, so the server never names a path to execute, and it runs once
+ * on a daemon thread so a registry query never blocks a frame.
  */
 object PackPilotLauncher {
 

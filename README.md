@@ -67,12 +67,9 @@ the gate, and again on join for the soft warning - and adds an update button to 
 The button also sidesteps the client's http/https-only rule for links, because it hands the URI to
 the OS directly.
 
-`PackPilotLauncher` finds and starts PackPilot: the installed executable first, then a
-`packpilot://` deep link, then nothing. Only the executable branch works today; PackPilot registers
-no URL protocol yet. Detection is client-side by design - the server never names a path to execute -
-and tries the configured path, the breadcrumb PackPilot writes on every run, the NSIS and MSI
-install locations, then the uninstall entry, once on a daemon thread so a registry query never
-blocks a frame.
+`PackPilotLauncher` finds and starts PackPilot, the pack installer, if it is present. Detection is
+client-side by design - the server never names a path to execute - and runs once on a daemon thread
+so it never blocks a frame. A configured path overrides it.
 
 ## Config (`config/marshcore.json`)
 
@@ -106,9 +103,9 @@ Minecraft **26.2**, Fabric Loader **0.19.3+**, **Java 25**, plus
 
 ## Limits
 
-The update check is not finished. Version comparison is exact string match, not semver; nothing
-downloads or applies a pack; and the manifest is fetched with no signature or auth. Harden it before
-relying on it to gate a live server.
+The update check is a prompt, not a security boundary. It exists to tell players to update and to
+keep an outdated client off a registry sync it would die on, and it is still being built out - treat
+it as a convenience rather than something that keeps anyone out.
 
 The Mending reset assumes everyone joins eventually - a player who never logs in again keeps their
 Mending.
